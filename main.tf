@@ -43,7 +43,7 @@ resource "aws_iam_role_policy" "lambda_policy" {
 
 # Create the Lambda function
 resource "aws_lambda_function" "this" {
-  function_name = "example-lambda"
+  function_name = var.lambda_name
   role          = aws_iam_role.lambda_role.arn
   handler       = "lambda_function.lambda_handler" # Update based on your function
   runtime       = "python3.9"                     # Adjust for your language
@@ -52,6 +52,11 @@ resource "aws_lambda_function" "this" {
 
   s3_bucket = var.s3_bucket_id
   s3_key    = var.s3_object_key
+
+  tags = {
+    "application_id" = var.application_id
+    "airnz_compliant" = "true"
+  }
 }
 
 # Output the Lambda ARN
