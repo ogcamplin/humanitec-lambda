@@ -1,5 +1,8 @@
 provider "aws" {
-  region = "ap-southeast-2" # Replace with your desired region
+  region     = var.REGION
+  access_key = var.ACCESS_KEY_ID
+  secret_key = var.ACCESS_KEY_VALUE
+  token      = var.SESSION_TOKEN
 }
 
 # Create an IAM role for the Lambda function
