@@ -19,7 +19,7 @@ resource "aws_lambda_function" "this" {
 
   tags = {
     "application_id" = var.application_id
-    "airnz_compliant" = "true"
+    "airnz_compliant" = "false"
   }
 }
 
